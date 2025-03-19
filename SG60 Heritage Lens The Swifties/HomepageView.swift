@@ -106,7 +106,6 @@ struct HomepageView: View {
                 
                 Spacer()
                 
-                BottomNavigationBar()
                 .padding()
                 .background(Color.gray.opacity(0.2))
                 .cornerRadius(10)
@@ -114,35 +113,10 @@ struct HomepageView: View {
             .padding()
             .navigationTitle("")
         }
+        
     }
 }
 
-
-struct BottomNavigationBar: View {
-    var body: some View {
-        HStack {
-            NavigationView {
-                NavigationLink(destination: Text("Achievements"))
-                {
-                    Label("Achievements", systemImage: "trophy")
-                }
-                NavigationLink(destination: Text("home"))
-                {
-                    Label("house.fill", systemImage: "home")
-                }
-                BottomNavItem(icon: "map.fill", label: "Explore", isSelected: false)
-                BottomNavItem(icon: "star.fill", label: "Badges", isSelected: true)
-                BottomNavItem(icon: "lightbulb.fill", label: "Quiz", isSelected: false)
-                BottomNavItem(icon: "person.fill", label: "Profile", isSelected: false)
-                
-            }
-            
-            .padding()
-            .background(Color.white)
-            .shadow(color: Color.black.opacity(0.1), radius: 5, x: 0, y: -2)
-        }
-    }
-}
 
     struct BottomNavItem: View {
         let icon: String
