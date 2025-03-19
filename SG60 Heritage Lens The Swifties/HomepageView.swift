@@ -30,14 +30,15 @@ struct HomepageView: View {
                     .padding(.bottom, 10)
                 
                 // Navigation Tabs with system icons
-                HStack(spacing: 15) {
-                    NavigationLink(destination: Text("ScannerView()")) {
+                HStack(spacing: 9) {
+                    NavigationLink(destination: Text("Scanner()")) {
                         Label("Scanner", systemImage: "camera.viewfinder")
                             .padding()
                             .frame(maxWidth: .infinity)
                             .background(Color.red.opacity(0.2))
                             .foregroundColor(.red)
                             .cornerRadius(10)
+                            .fixedSize()
                     }
                     NavigationLink(destination: Text("FeaturedView")) {
                         Label("Featured", systemImage: "star.fill")
@@ -45,6 +46,7 @@ struct HomepageView: View {
                             .frame(maxWidth: .infinity)
                             .background(Color.gray.opacity(0.2))
                             .cornerRadius(10)
+                            .fixedSize()
                     }
                     NavigationLink(destination: Text("NearbyView()")) {
                         Label("Nearby", systemImage: "mappin.and.ellipse")
@@ -52,6 +54,7 @@ struct HomepageView: View {
                             .frame(maxWidth: .infinity)
                             .background(Color.gray.opacity(0.2))
                             .cornerRadius(10)
+                            .fixedSize()
                     }
                 }
                 .padding(.horizontal)
@@ -68,7 +71,7 @@ struct HomepageView: View {
                         .font(.headline)
                         .padding(.bottom, 5)
                     
-                    Text("Point your camera at a Singapore landmark to identify it and unlock historical information.")
+                    Text("Point your camera at a Singapore landmark")
                         .font(.subheadline)
                         .multilineTextAlignment(.center)
                         .padding(.horizontal, 20)
