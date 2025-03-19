@@ -1,0 +1,561 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 77;
+	objects = {
+
+/* Begin PBXContainerItemProxy section */
+		180310552D8A6BC70042B157 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 1803103C2D8A6BC50042B157 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 180310432D8A6BC50042B157;
+			remoteInfo = "SG60 Heritage Lens The Swifties";
+		};
+		1803105F2D8A6BC70042B157 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 1803103C2D8A6BC50042B157 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 180310432D8A6BC50042B157;
+			remoteInfo = "SG60 Heritage Lens The Swifties";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		180310442D8A6BC50042B157 /* SG60 Heritage Lens The Swifties.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "SG60 Heritage Lens The Swifties.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		180310542D8A6BC70042B157 /* SG60 Heritage Lens The SwiftiesTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "SG60 Heritage Lens The SwiftiesTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		1803105E2D8A6BC70042B157 /* SG60 Heritage Lens The SwiftiesUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "SG60 Heritage Lens The SwiftiesUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFileSystemSynchronizedRootGroup section */
+		180310462D8A6BC50042B157 /* SG60 Heritage Lens The Swifties */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = "SG60 Heritage Lens The Swifties";
+			sourceTree = "<group>";
+		};
+		180310572D8A6BC70042B157 /* SG60 Heritage Lens The SwiftiesTests */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = "SG60 Heritage Lens The SwiftiesTests";
+			sourceTree = "<group>";
+		};
+		180310612D8A6BC70042B157 /* SG60 Heritage Lens The SwiftiesUITests */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = "SG60 Heritage Lens The SwiftiesUITests";
+			sourceTree = "<group>";
+		};
+/* End PBXFileSystemSynchronizedRootGroup section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		180310412D8A6BC50042B157 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		180310512D8A6BC70042B157 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1803105B2D8A6BC70042B157 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		1803103B2D8A6BC50042B157 = {
+			isa = PBXGroup;
+			children = (
+				180310462D8A6BC50042B157 /* SG60 Heritage Lens The Swifties */,
+				180310572D8A6BC70042B157 /* SG60 Heritage Lens The SwiftiesTests */,
+				180310612D8A6BC70042B157 /* SG60 Heritage Lens The SwiftiesUITests */,
+				180310452D8A6BC50042B157 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		180310452D8A6BC50042B157 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				180310442D8A6BC50042B157 /* SG60 Heritage Lens The Swifties.app */,
+				180310542D8A6BC70042B157 /* SG60 Heritage Lens The SwiftiesTests.xctest */,
+				1803105E2D8A6BC70042B157 /* SG60 Heritage Lens The SwiftiesUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		180310432D8A6BC50042B157 /* SG60 Heritage Lens The Swifties */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 180310682D8A6BC70042B157 /* Build configuration list for PBXNativeTarget "SG60 Heritage Lens The Swifties" */;
+			buildPhases = (
+				180310402D8A6BC50042B157 /* Sources */,
+				180310412D8A6BC50042B157 /* Frameworks */,
+				180310422D8A6BC50042B157 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				180310462D8A6BC50042B157 /* SG60 Heritage Lens The Swifties */,
+			);
+			name = "SG60 Heritage Lens The Swifties";
+			packageProductDependencies = (
+			);
+			productName = "SG60 Heritage Lens The Swifties";
+			productReference = 180310442D8A6BC50042B157 /* SG60 Heritage Lens The Swifties.app */;
+			productType = "com.apple.product-type.application";
+		};
+		180310532D8A6BC70042B157 /* SG60 Heritage Lens The SwiftiesTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1803106B2D8A6BC70042B157 /* Build configuration list for PBXNativeTarget "SG60 Heritage Lens The SwiftiesTests" */;
+			buildPhases = (
+				180310502D8A6BC70042B157 /* Sources */,
+				180310512D8A6BC70042B157 /* Frameworks */,
+				180310522D8A6BC70042B157 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				180310562D8A6BC70042B157 /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				180310572D8A6BC70042B157 /* SG60 Heritage Lens The SwiftiesTests */,
+			);
+			name = "SG60 Heritage Lens The SwiftiesTests";
+			packageProductDependencies = (
+			);
+			productName = "SG60 Heritage Lens The SwiftiesTests";
+			productReference = 180310542D8A6BC70042B157 /* SG60 Heritage Lens The SwiftiesTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		1803105D2D8A6BC70042B157 /* SG60 Heritage Lens The SwiftiesUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1803106E2D8A6BC70042B157 /* Build configuration list for PBXNativeTarget "SG60 Heritage Lens The SwiftiesUITests" */;
+			buildPhases = (
+				1803105A2D8A6BC70042B157 /* Sources */,
+				1803105B2D8A6BC70042B157 /* Frameworks */,
+				1803105C2D8A6BC70042B157 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				180310602D8A6BC70042B157 /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				180310612D8A6BC70042B157 /* SG60 Heritage Lens The SwiftiesUITests */,
+			);
+			name = "SG60 Heritage Lens The SwiftiesUITests";
+			packageProductDependencies = (
+			);
+			productName = "SG60 Heritage Lens The SwiftiesUITests";
+			productReference = 1803105E2D8A6BC70042B157 /* SG60 Heritage Lens The SwiftiesUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		1803103C2D8A6BC50042B157 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1620;
+				LastUpgradeCheck = 1620;
+				TargetAttributes = {
+					180310432D8A6BC50042B157 = {
+						CreatedOnToolsVersion = 16.2;
+					};
+					180310532D8A6BC70042B157 = {
+						CreatedOnToolsVersion = 16.2;
+						TestTargetID = 180310432D8A6BC50042B157;
+					};
+					1803105D2D8A6BC70042B157 = {
+						CreatedOnToolsVersion = 16.2;
+						TestTargetID = 180310432D8A6BC50042B157;
+					};
+				};
+			};
+			buildConfigurationList = 1803103F2D8A6BC50042B157 /* Build configuration list for PBXProject "SG60 Heritage Lens The Swifties" */;
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 1803103B2D8A6BC50042B157;
+			minimizedProjectReferenceProxies = 1;
+			preferredProjectObjectVersion = 77;
+			productRefGroup = 180310452D8A6BC50042B157 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				180310432D8A6BC50042B157 /* SG60 Heritage Lens The Swifties */,
+				180310532D8A6BC70042B157 /* SG60 Heritage Lens The SwiftiesTests */,
+				1803105D2D8A6BC70042B157 /* SG60 Heritage Lens The SwiftiesUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		180310422D8A6BC50042B157 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		180310522D8A6BC70042B157 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1803105C2D8A6BC70042B157 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		180310402D8A6BC50042B157 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		180310502D8A6BC70042B157 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1803105A2D8A6BC70042B157 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		180310562D8A6BC70042B157 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 180310432D8A6BC50042B157 /* SG60 Heritage Lens The Swifties */;
+			targetProxy = 180310552D8A6BC70042B157 /* PBXContainerItemProxy */;
+		};
+		180310602D8A6BC70042B157 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 180310432D8A6BC50042B157 /* SG60 Heritage Lens The Swifties */;
+			targetProxy = 1803105F2D8A6BC70042B157 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		180310662D8A6BC70042B157 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.2;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		180310672D8A6BC70042B157 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.2;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		180310692D8A6BC70042B157 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"SG60 Heritage Lens The Swifties/Preview Content\"";
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSCameraUsageDescription = "";
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UIRequiredDeviceCapabilities = arkit;
+				INFOPLIST_KEY_UIStatusBarHidden = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "hi.SG60-Heritage-Lens-The-Swifties";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		1803106A2D8A6BC70042B157 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"SG60 Heritage Lens The Swifties/Preview Content\"";
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSCameraUsageDescription = "";
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UIRequiredDeviceCapabilities = arkit;
+				INFOPLIST_KEY_UIStatusBarHidden = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "hi.SG60-Heritage-Lens-The-Swifties";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		1803106C2D8A6BC70042B157 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.2;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "hi.SG60-Heritage-Lens-The-SwiftiesTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SG60 Heritage Lens The Swifties.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/SG60 Heritage Lens The Swifties";
+			};
+			name = Debug;
+		};
+		1803106D2D8A6BC70042B157 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.2;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "hi.SG60-Heritage-Lens-The-SwiftiesTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SG60 Heritage Lens The Swifties.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/SG60 Heritage Lens The Swifties";
+			};
+			name = Release;
+		};
+		1803106F2D8A6BC70042B157 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "hi.SG60-Heritage-Lens-The-SwiftiesUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = "SG60 Heritage Lens The Swifties";
+			};
+			name = Debug;
+		};
+		180310702D8A6BC70042B157 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "hi.SG60-Heritage-Lens-The-SwiftiesUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = "SG60 Heritage Lens The Swifties";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		1803103F2D8A6BC50042B157 /* Build configuration list for PBXProject "SG60 Heritage Lens The Swifties" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				180310662D8A6BC70042B157 /* Debug */,
+				180310672D8A6BC70042B157 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		180310682D8A6BC70042B157 /* Build configuration list for PBXNativeTarget "SG60 Heritage Lens The Swifties" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				180310692D8A6BC70042B157 /* Debug */,
+				1803106A2D8A6BC70042B157 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		1803106B2D8A6BC70042B157 /* Build configuration list for PBXNativeTarget "SG60 Heritage Lens The SwiftiesTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1803106C2D8A6BC70042B157 /* Debug */,
+				1803106D2D8A6BC70042B157 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		1803106E2D8A6BC70042B157 /* Build configuration list for PBXNativeTarget "SG60 Heritage Lens The SwiftiesUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1803106F2D8A6BC70042B157 /* Debug */,
+				180310702D8A6BC70042B157 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 1803103C2D8A6BC50042B157 /* Project object */;
+}
