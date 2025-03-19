@@ -8,87 +8,104 @@
 import SwiftUI
 
 struct SettingsView: View {
-    @State private var isDarkMode = false
-    @State private var displayLanguage = "English"
-    @State private var heritageLanguage = "English"
-    @State private var pushNotifications = true
-    @State private var heritageAlerts = true
-    
-    let languages = ["English", "Spanish", "French", "German"] // Add more as needed
-    
+    // MARK: - App Storage Properties
+    @AppStorage("isDarkMode") private var isDarkMode: Bool = false
+    @AppStorage("displayLanguage") private var displayLanguage: String = "English"
+    @AppStorage("heritageInfoLanguage") private var heritageInfoLanguage: String = "English"
+    @AppStorage("pushNotifications") private var pushNotifications: Bool = true
+    @AppStorage("nearbyHeritageAlerts") private var nearbyHeritageAlerts: Bool = true
+
+    // MARK: - Body
     var body: some View {
         NavigationView {
             Form {
+                // Appearance Section
                 Section(header: Text("Appearance")) {
                     Toggle(isOn: $isDarkMode) {
-                        Label("Dark Mode", systemImage: isDarkMode ? "moon.fill" : "sun.max.fill")
+                        Text("Dark Mode")
                     }
                 }
-                
+
+                // Language Section
                 Section(header: Text("Language")) {
                     Picker("Display Language", selection: $displayLanguage) {
-                        ForEach(languages, id: \.self) { language in
-                            Text(language)
-                        }
+                        Text("English").tag("English")
+                        Text("Chinese").tag("Chinese")
+                        Text("Malay").tag("Malay")
+                        Text("Tamil").tag("Tamil")
+                        Text("Singlish(beta)").tag("Singlish")
+                        // Add more languages as needed
                     }
                     .pickerStyle(MenuPickerStyle())
-                    
-                    Picker("Heritage Info Language", selection: $heritageLanguage) {
-                        ForEach(languages, id: \.self) { language in
-                            Text(language)
-                        }
+
+                    Picker("Heritage Info Language", selection: $heritageInfoLanguage) {
+                        Text("English").tag("English")
+                        Text("Chinese").tag("Chinese")
+                        Text("Malay").tag("Malay")
+                        Text("Tamil").tag("Tamil")
+                        Text("Singlish(beta)").tag("Singlish")
+                        // Add more languages as needed
                     }
                     .pickerStyle(MenuPickerStyle())
                 }
-                
+
+                // Notifications Section
                 Section(header: Text("Notifications")) {
                     Toggle(isOn: $pushNotifications) {
-                        Label("Push Notifications", systemImage: "bell.fill")
+                        Text("Push Notifications")
                     }
-                    
-                    Toggle(isOn: $heritageAlerts) {
-                        Label("Nearby Heritage Alerts", systemImage: "bell.badge.fill")
+                    Toggle(isOn: $nearbyHeritageAlerts) {
+                        Text("Nearby Heritage Alerts")
                     }
                 }
-                
+
+                // About Section
                 Section(header: Text("About")) {
                     HStack {
                         Text("Version")
                         Spacer()
-                        Text("1.0.0").foregroundColor(.gray)
+                        Text("1.0.0") // Hard-coded example
                     }
-                    
-                    Text("Made for SG60").foregroundColor(.gray)
-                    
-                    Button(action: {
-                        // Clear app data action
-                    }) {
-                        HStack {
-                            Image(systemName: "trash")
-                            Text("Clear App Data")
-                        }
-                        .foregroundColor(.white)
-                        .frame(maxWidth: .infinity)
-                        .padding()
-                        .background(Color.brown)
-                        .cornerRadius(10)
+
+                    Button(action: clearAppData) {
+                        Text("Clear App Data")
+                            .foregroundColor(.red)
                     }
-                    
-                    Button(action: {
-                        // Sign out action
-                    }) {
-                        HStack {
-                            Image(systemName: "arrow.left.circle.fill")
-                            Text("Sign Out")
-                        }
-                        .foregroundColor(.red)
+
+                    Button(action: signOut) {
+                        Text("Sign Out")
+                            .foregroundColor(.blue)
                     }
                 }
             }
             .navigationTitle("Settings")
+            .preferredColorScheme(isDarkMode ? .dark : .light)
+        }
+        .onChange(of: displayLanguage) { newValue in
+            // Handle UI changes or localization updates here if needed
+            print("Display language changed to \(newValue)")
         }
     }
+
+    // MARK: - Actions
+    private func clearAppData() {
+        // Example: Clear your app’s data, reset user defaults, etc.
+        // Here you might reset certain @AppStorage properties, or
+        // remove key/value pairs from UserDefaults.
+        pushNotifications = false
+        nearbyHeritageAlerts = false
+        displayLanguage = "English"
+        heritageInfoLanguage = "English"
+        // Add more reset logic as needed
+    }
+
+    private func signOut() {
+        // Example sign-out logic
+        // Possibly clear tokens, present a login screen, etc.
+        print("User signed out.")
+    }
 }
+
 
 #Preview {
     SettingsView()
