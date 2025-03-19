@@ -6,6 +6,14 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		180311222D8AB07C0042B157 /* Auth in Frameworks */ = {isa = PBXBuildFile; productRef = 180311212D8AB07C0042B157 /* Auth */; };
+		180311242D8AB07C0042B157 /* Functions in Frameworks */ = {isa = PBXBuildFile; productRef = 180311232D8AB07C0042B157 /* Functions */; };
+		180311262D8AB07C0042B157 /* PostgREST in Frameworks */ = {isa = PBXBuildFile; productRef = 180311252D8AB07C0042B157 /* PostgREST */; };
+		180311282D8AB07C0042B157 /* Realtime in Frameworks */ = {isa = PBXBuildFile; productRef = 180311272D8AB07C0042B157 /* Realtime */; };
+		1803112A2D8AB07C0042B157 /* Storage in Frameworks */ = {isa = PBXBuildFile; productRef = 180311292D8AB07C0042B157 /* Storage */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXContainerItemProxy section */
 		180310552D8A6BC70042B157 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -52,6 +60,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				180311262D8AB07C0042B157 /* PostgREST in Frameworks */,
+				180311242D8AB07C0042B157 /* Functions in Frameworks */,
+				180311222D8AB07C0042B157 /* Auth in Frameworks */,
+				1803112A2D8AB07C0042B157 /* Storage in Frameworks */,
+				180311282D8AB07C0042B157 /* Realtime in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -112,6 +125,11 @@
 			);
 			name = "SG60 Heritage Lens The Swifties";
 			packageProductDependencies = (
+				180311212D8AB07C0042B157 /* Auth */,
+				180311232D8AB07C0042B157 /* Functions */,
+				180311252D8AB07C0042B157 /* PostgREST */,
+				180311272D8AB07C0042B157 /* Realtime */,
+				180311292D8AB07C0042B157 /* Storage */,
 			);
 			productName = "SG60 Heritage Lens The Swifties";
 			productReference = 180310442D8A6BC50042B157 /* SG60 Heritage Lens The Swifties.app */;
@@ -570,6 +588,29 @@
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		180311212D8AB07C0042B157 /* Auth */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = Auth;
+		};
+		180311232D8AB07C0042B157 /* Functions */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = Functions;
+		};
+		180311252D8AB07C0042B157 /* PostgREST */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = PostgREST;
+		};
+		180311272D8AB07C0042B157 /* Realtime */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = Realtime;
+		};
+		180311292D8AB07C0042B157 /* Storage */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = Storage;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 1803103C2D8A6BC50042B157 /* Project object */;
 }
