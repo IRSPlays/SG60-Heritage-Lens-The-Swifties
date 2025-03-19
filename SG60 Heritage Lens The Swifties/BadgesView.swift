@@ -5,93 +5,260 @@
 //  Created by Sp on 19/3/25.
 //
 
+//
+//  ContentView.swift
+//  SG60 Heritage Lens The Swifties
+//
+//  Created by Apple on 19/3/25.
+//
+
+import SwiftUI
+import RealityKit
+
+
 import SwiftUI
 
-struct Badge: Identifiable {
-    let id = UUID()
-    let name: String
-    let progress: Int
-    let unlocked: Bool
-}
-
-class BadgeViewModel: ObservableObject {
-    @Published var badges = [
-        Badge(name: "Colonial Heritage", progress: 40, unlocked: false),
-        Badge(name: "Modern Marvel", progress: 60, unlocked: false),
-        Badge(name: "Cultural Explorer", progress: 30, unlocked: false),
-        Badge(name: "Marina Master", progress: 100, unlocked: true),
-        Badge(name: "History Buff", progress: 66, unlocked: false),
-        Badge(name: "SG Linguist", progress: 20, unlocked: false)
-    ]
-}
-
 struct BadgesView: View {
-    @StateObject private var viewModel = BadgeViewModel()
-    @AppStorage("isDarkMode") private var isDarkMode: Bool = false
-    
     var body: some View {
         NavigationView {
-            VStack {
-                VStack {
-                    Text("Your Heritage Badges")
-                        .font(.title2)
-                        .bold()
-                    Text("Collect badges as you explore Singapore's heritage")
-                        .font(.subheadline)
-                        .foregroundColor(.gray)
+            VStack(spacing: 0) {
+                ScrollView {
+                    VStack(alignment: .leading, spacing: 16) {
+                        
+                        // Header Section
+                        headerSection
+                        
+                        // Filter Buttons
+                        filterButtons
+                        
+                        // Badges Grid
+                        badgesGrid
+                        
+                        // Recently Unlocked Section
+                        recentlyUnlockedSection
+                        
+                        // Coming Soon Section
+                        comingSoonSection
+                    }
                 }
-                .padding()
+                .navigationTitle("Your Badges")
+                .navigationBarTitleDisplayMode(.inline)
                 
-                HStack {
-                    VStack {
-                        Text("\(viewModel.badges.filter { $0.unlocked }.count)")
-                            .font(.title)
-                            .bold()
-                            .foregroundColor(.yellow)
-                        Text("Unlocked")
-                            .font(.subheadline)
-                    }
-                    Spacer()
-                    VStack {
-                        Text("\(viewModel.badges.filter { !$0.unlocked }.count)")
-                            .font(.title)
-                            .bold()
-                            .foregroundColor(.red)
-                        Text("In Progress")
-                            .font(.subheadline)
-                    }
-                    Spacer()
-                    VStack {
-                        Text("\(viewModel.badges.count)")
-                            .font(.title)
-                            .bold()
-                        Text("Total Badges")
-                            .font(.subheadline)
-                    }
-                }
-                .padding()
-                
-                List(viewModel.badges) { badge in
-                    HStack {
-                        Image(systemName: badge.unlocked ? "checkmark.circle.fill" : "clock")
-                            .foregroundColor(badge.unlocked ? .yellow : .gray)
-                        VStack(alignment: .leading) {
-                            Text(badge.name)
-                                .font(.headline)
-                            Text("\(badge.progress)% complete")
-                                .font(.subheadline)
-                                .foregroundColor(.gray)
-                        }
-                        Spacer()
-                    }
-                }
+                // Bottom Navigation Bar
+                BottomNavigationBar()
             }
-            .navigationTitle("Your Badges")
         }
-        .preferredColorScheme(isDarkMode ? .dark : .light)
+    }
+    
+    // MARK: Subsections
+    var headerSection: some View {
+        VStack(alignment: .leading, spacing: 8) {
+            Text("Your Heritage Badges")
+                .font(.title2)
+                .bold()
+            Text("Collect badges as you explore Singapore’s heritage")
+                .font(.subheadline)
+                .foregroundColor(.secondary)
+            
+            HStack {
+                BadgeSummaryItem(title: "1", subtitle: "Unlocked")
+                BadgeSummaryItem(title: "15", subtitle: "In Progress")
+                BadgeSummaryItem(title: "18", subtitle: "Total Badges")
+            }
+        }
+        .padding(.horizontal)
+    }
+    
+    var filterButtons: some View {
+        HStack(spacing: 8) {
+            FilterButton(label: "All", isSelected: true)
+            FilterButton(label: "Unlocked")
+            FilterButton(label: "In Progress")
+        }
+        .padding(.horizontal)
+    }
+    
+    var badgesGrid: some View {
+        LazyVGrid(columns: [GridItem(.flexible()), GridItem(.flexible()), GridItem(.flexible())],
+                  spacing: 16) {
+            BadgeItem(title: "Colonial Heritage", progress: 40)
+            BadgeItem(title: "Modern Marvel", progress: 60)
+            BadgeItem(title: "Cultural Explorer", progress: 30)
+            BadgeItem(title: "Festival Follower", progress: 15)
+            BadgeItem(title: "Nostalgia Hunter", progress: 20)
+            BadgeItem(title: "Art Explorer", progress: 5)
+            BadgeItem(title: "Foodie Trail", progress: 70)
+            BadgeItem(title: "Nature Seeker", progress: 50)
+            BadgeItem(title: "Museum Master", progress: 10)
+        }
+        .padding(.horizontal)
+    }
+    
+    var recentlyUnlockedSection: some View {
+        VStack(alignment: .leading) {
+            Text("Recently Unlocked")
+                .font(.headline)
+                .padding(.horizontal)
+                .padding(.top)
+            
+            RecentlyUnlockedItem(
+                title: "Marina Master",
+                description: "Discover all Marina Bay attractions"
+            )
+        }
+    }
+    
+    var comingSoonSection: some View {
+        VStack {
+            Text("Coming Soon")
+                .font(.title3)
+                .bold()
+            Text("Complete quizzes about Singapore’s heritage to earn special badges")
+                .font(.subheadline)
+                .multilineTextAlignment(.center)
+                .foregroundColor(.secondary)
+                .padding(.horizontal)
+            
+            Button(action: {
+                // Action for "Get Notified"
+            }) {
+                Text("Get Notified")
+                    .font(.headline)
+                    .frame(maxWidth: .infinity)
+                    .padding()
+                    .background(Color.red)
+                    .foregroundColor(.white)
+                    .cornerRadius(8)
+            }
+            .padding(.horizontal)
+        }
+        .padding(.vertical)
     }
 }
 
+// MARK: - Subviews
+
+struct BadgeSummaryItem: View {
+    let title: String
+    let subtitle: String
+    
+    var body: some View {
+        VStack {
+            Text(title)
+                .font(.title)
+                .bold()
+            Text(subtitle)
+                .font(.footnote)
+                .foregroundColor(.secondary)
+        }
+        .frame(maxWidth: .infinity)
+    }
+}
+
+struct FilterButton: View {
+    let label: String
+    var isSelected: Bool = false
+    
+    var body: some View {
+        Text(label)
+            .font(.subheadline)
+            .fontWeight(isSelected ? .bold : .regular)
+            .padding(8)
+            .frame(maxWidth: .infinity)
+            .background(isSelected ? Color.red : Color.clear)
+            .foregroundColor(isSelected ? .white : .black)
+            .cornerRadius(8)
+            .overlay(
+                RoundedRectangle(cornerRadius: 8)
+                    .stroke(Color.red, lineWidth: isSelected ? 0 : 1)
+            )
+    }
+}
+
+struct BadgeItem: View {
+    let title: String
+    let progress: Int
+    
+    var body: some View {
+        VStack {
+            Circle()
+                .strokeBorder(Color.gray.opacity(0.4), lineWidth: 3)
+                .frame(width: 60, height: 60)
+                .overlay(
+                    Text("\(progress)%")
+                        .font(.footnote)
+                        .foregroundColor(.secondary)
+                )
+            Text(title)
+                .font(.caption)
+                .multilineTextAlignment(.center)
+                .lineLimit(2)
+        }
+    }
+}
+
+struct RecentlyUnlockedItem: View {
+    let title: String
+    let description: String
+    
+    var body: some View {
+        HStack {
+            Circle()
+                .fill(Color.yellow.opacity(0.5))
+                .frame(width: 40, height: 40)
+            
+            VStack(alignment: .leading) {
+                Text(title)
+                    .font(.subheadline)
+                    .bold()
+                Text(description)
+                    .font(.caption)
+                    .foregroundColor(.secondary)
+            }
+            
+            Spacer()
+        }
+        .padding()
+        .background(Color.gray.opacity(0.1))
+        .cornerRadius(8)
+        .padding(.horizontal)
+    }
+}
+
+struct BottomNavigationBar: View {
+    var body: some View {
+        HStack {
+            BottomNavItem(icon: "house.fill", label: "Home", isSelected: false)
+            BottomNavItem(icon: "map.fill", label: "Explore", isSelected: false)
+            BottomNavItem(icon: "star.fill", label: "Badges", isSelected: true)
+            BottomNavItem(icon: "lightbulb.fill", label: "Quiz", isSelected: false)
+            BottomNavItem(icon: "person.fill", label: "Profile", isSelected: false)
+        }
+        .padding()
+        .background(Color.white)
+        .shadow(color: Color.black.opacity(0.1), radius: 5, x: 0, y: -2)
+    }
+}
+
+struct BottomNavItem: View {
+    let icon: String
+    let label: String
+    var isSelected: Bool
+    
+    var body: some View {
+        VStack {
+            Image(systemName: icon)
+                .font(.system(size: 20))
+                .foregroundColor(isSelected ? .red : .gray)
+            Text(label)
+                .font(.caption)
+                .foregroundColor(isSelected ? .red : .gray)
+        }
+        .frame(maxWidth: .infinity)
+    }
+}
+
+// MARK: - Preview
 #Preview {
     BadgesView()
 }
