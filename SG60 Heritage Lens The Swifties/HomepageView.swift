@@ -126,55 +126,60 @@ struct BottomNavigationBar: View {
                 {
                     Label("Achievements", systemImage: "trophy")
                 }
-                NavigationLink(destination: Text("home")){ Label("house.fill", label: "Home")}
+                NavigationLink(destination: Text("home"))
+                {
+                    Label("house.fill", systemImage: "home")
+                }
                 BottomNavItem(icon: "map.fill", label: "Explore", isSelected: false)
                 BottomNavItem(icon: "star.fill", label: "Badges", isSelected: true)
                 BottomNavItem(icon: "lightbulb.fill", label: "Quiz", isSelected: false)
                 BottomNavItem(icon: "person.fill", label: "Profile", isSelected: false)
-
+                
             }
-
-        .padding()
-        .background(Color.white)
-        .shadow(color: Color.black.opacity(0.1), radius: 5, x: 0, y: -2)
-    }
-}
-
-struct BottomNavItem: View {
-    let icon: String
-    let label: String
-    var isSelected: Bool
-    
-    var body: some View {
-        VStack {
-            Image(systemName: icon)
-                .font(.system(size: 20))
-                .foregroundColor(isSelected ? .red : .gray)
-            Text(label)
-                .font(.caption)
-                .foregroundColor(isSelected ? .red : .gray)
+            
+            .padding()
+            .background(Color.white)
+            .shadow(color: Color.black.opacity(0.1), radius: 5, x: 0, y: -2)
         }
-        .frame(maxWidth: .infinity)
     }
 }
 
-
-
-
-// Placeholder Views
-struct ScannerView: View { var body: some View { Text("Scanner View") } }
-struct FeaturedView: View { var body: some View { Text("Featured View") } }
-struct NearbyView: View { var body: some View { Text("Nearby View") } }
-struct HomeView: View { var body: some View { Text("Home View") } }
-struct ExploreView: View { var body: some View { Text("Explore View") } }
-struct DiscoverView: View { var body: some View { Text("Discover View") } }
-struct LeaderboardView: View { var body: some View { Text("Leaderboard View") } }
-
-
-
-
-
-#Preview {
-    HomepageView()
-}
+    struct BottomNavItem: View {
+        let icon: String
+        let label: String
+        var isSelected: Bool
+        
+        var body: some View {
+            VStack {
+                Image(systemName: icon)
+                    .font(.system(size: 20))
+                    .foregroundColor(isSelected ? .red : .gray)
+                Text(label)
+                    .font(.caption)
+                    .foregroundColor(isSelected ? .red : .gray)
+            }
+            .frame(maxWidth: .infinity)
+        }
+    }
+    
+    
+    
+    
+    // Placeholder Views
+    struct ScannerView: View { var body: some View { Text("Scanner View") } }
+    struct FeaturedView: View { var body: some View { Text("Featured View") } }
+    struct NearbyView: View { var body: some View { Text("Nearby View") } }
+    struct HomeView: View { var body: some View { Text("Home View") } }
+    struct ExploreView: View { var body: some View { Text("Explore View") } }
+    struct DiscoverView: View { var body: some View { Text("Discover View") } }
+    struct LeaderboardView: View { var body: some View { Text("Leaderboard View") } }
+    
+    
+    
+    
+    
+    #Preview {
+        HomepageView()
+    }
+    
 
