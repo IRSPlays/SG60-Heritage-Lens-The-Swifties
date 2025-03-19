@@ -7,7 +7,12 @@
 
 import SwiftUI
 import RealityKit
+import Supabase
 
+let supabase = SupabaseClient(
+  supabaseURL: URL(string: "https://ctzxhracmnuzetlwfqbd.supabase.co")!,
+  supabaseKey: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImN0enhocmFjbW51emV0bHdmcWJkIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDIzNjM3ODQsImV4cCI6MjA1NzkzOTc4NH0.HuFPWTBw495Ja-iREz4pW62S4jjId1aAgInwxTClZCg"
+)
 import SwiftUI
 
 struct ContentView: View {
