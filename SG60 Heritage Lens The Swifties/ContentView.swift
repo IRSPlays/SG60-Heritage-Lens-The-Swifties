@@ -12,7 +12,7 @@ struct ContentView : View {
 
     var body: some View {
         RealityView { content in
-
+            let test = 1
             // Create a cube model
             let model = Entity()
             let mesh = MeshResource.generateBox(size: 0.1, cornerRadius: 0.005)
