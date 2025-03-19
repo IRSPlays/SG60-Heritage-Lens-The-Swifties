@@ -31,7 +31,7 @@ struct HomepageView: View {
                 
                 // Navigation Tabs with system icons
                 HStack(spacing: 15) {
-                    NavigationLink(destination: ScannerView()) {
+                    NavigationLink(destination: Text("ScannerView()")) {
                         Label("Scanner", systemImage: "camera.viewfinder")
                             .padding()
                             .frame(maxWidth: .infinity)
@@ -39,14 +39,14 @@ struct HomepageView: View {
                             .foregroundColor(.red)
                             .cornerRadius(10)
                     }
-                    NavigationLink(destination: FeaturedView()) {
+                    NavigationLink(destination: Text("FeaturedView")) {
                         Label("Featured", systemImage: "star.fill")
                             .padding()
                             .frame(maxWidth: .infinity)
                             .background(Color.gray.opacity(0.2))
                             .cornerRadius(10)
                     }
-                    NavigationLink(destination: NearbyView()) {
+                    NavigationLink(destination: Text("NearbyView()")) {
                         Label("Nearby", systemImage: "mappin.and.ellipse")
                             .padding()
                             .frame(maxWidth: .infinity)
@@ -122,7 +122,8 @@ struct BottomNavigationBar: View {
     var body: some View {
         HStack {
             NavigationView {
-                NavigationLink(destination: Text("Achievements")) {
+                NavigationLink(destination: Text("Achievements"))
+                {
                     Label("Achievements", systemImage: "trophy")
                 }
                 NavigationLink(destination: Text("home")){ Label("house.fill", label: "Home")}
@@ -176,3 +177,4 @@ struct LeaderboardView: View { var body: some View { Text("Leaderboard View") } 
 #Preview {
     HomepageView()
 }
+
