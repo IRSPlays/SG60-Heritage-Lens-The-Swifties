@@ -1,25 +1,30 @@
 import SwiftUI
+import AVFoundation
+import CoreML
+import Vision
 import Supabase
-import RealityKit
 
 let supabase = SupabaseClient(
-  supabaseURL: URL(string: "https://ctzxhracmnuzetlwfqbd.supabase.co")!,
-  supabaseKey: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImN0enhocmFjbW51emV0bHdmcWJkIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDIzNjM3ODQsImV4cCI6MjA1NzkzOTc4NH0.HuFPWTBw495Ja-iREz4pW62S4jjId1aAgInwxTClZCg"
+    supabaseURL: URL(string: "https://ctzxhracmnuzetlwfqbd.supabase.co")!,
+    supabaseKey: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImN0enhocmFjbW51emV0bHdmcWJkIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDIzNjM3ODQsImV4cCI6MjA1NzkzOTc4NH0.HuFPWTBw495Ja-iREz4pW62S4jjId1aAgInwxTClZCg"
 )
+
 struct ContentView: View {
-    @AppStorage("isLoggedIn") private var isLoggedIn: Bool = false // Track login status
-    
+    @AppStorage("isLoggedIn") private var isLoggedIn: Bool = false
     var body: some View {
         if isLoggedIn {
-            MainAppView() // Replace with your main app content
+            MainAppView()
         } else {
             LoginView()
         }
     }
 }
 
-// Main App View - Placeholder for your app's content after login
+// Main App View with Camera Scan Button
 struct MainAppView: View {
+    @State private var isScanning = false
+    @State private var scanResult: String? = nil
+    
     var body: some View {
         VStack {
             Text("Welcome to SG60 Heritage Lens!")
@@ -27,13 +32,105 @@ struct MainAppView: View {
             Text("You're logged in.")
                 .foregroundColor(.gray)
                 .padding(.top, 12)
+            
+            if isScanning {
+                CameraScannerView(scanResult: $scanResult)
+                    .frame(height: 300)
+            } else {
+                Button("Start Scanning") {
+                    isScanning.toggle()
+                }
+                .padding()
+                .background(Color.blue)
+                .foregroundColor(.white)
+                .cornerRadius(8)
+            }
+            
+            if let result = scanResult {
+                Text("Scan Result: \(result)")
+                    .padding()
+            }
+
             Button("Logout") {
                 // Logout action
-                UserDefaults.standard.removeObject(forKey: "isLoggedIn") // Clear login status
+                UserDefaults.standard.removeObject(forKey: "isLoggedIn")
             }
             .padding(.top, 24)
         }
+        .padding()
     }
+}
+
+// Camera Scanner View
+struct CameraScannerView: UIViewControllerRepresentable {
+    @Binding var scanResult: String?
+
+    class Coordinator: NSObject, AVCaptureMetadataOutputObjectsDelegate {
+        var parent: CameraScannerView
+
+        init(parent: CameraScannerView) {
+            self.parent = parent
+        }
+
+        func metadataOutput(
+            _ output: AVCaptureMetadataOutput,
+            didOutput metadataObjects: [AVMetadataObject],
+            from connection: AVCaptureConnection
+        ) {
+            if let metadataObject = metadataObjects.first {
+                guard let readableObject = metadataObject as? AVMetadataMachineReadableCodeObject else { return }
+                guard let stringValue = readableObject.stringValue else { return }
+                AudioServicesPlaySystemSound(SystemSoundID(kSystemSoundID_Vibrate))
+                parent.scanResult = stringValue
+            }
+        }
+    }
+
+    func makeCoordinator() -> Coordinator {
+        return Coordinator(parent: self)
+    }
+
+    func makeUIViewController(context: Context) -> UIViewController {
+        let viewController = UIViewController()
+        let captureSession = AVCaptureSession()
+        
+        guard let videoCaptureDevice = AVCaptureDevice.default(for: .video) else { return viewController }
+        let videoDeviceInput: AVCaptureDeviceInput
+        
+        do {
+            videoDeviceInput = try AVCaptureDeviceInput(device: videoCaptureDevice)
+        } catch {
+            return viewController
+        }
+        
+        if (captureSession.canAddInput(videoDeviceInput)) {
+            captureSession.addInput(videoDeviceInput)
+        } else {
+            return viewController
+        }
+        
+        let metadataOutput = AVCaptureMetadataOutput()
+        
+        if (captureSession.canAddOutput(metadataOutput)) {
+            captureSession.addOutput(metadataOutput)
+            
+            metadataOutput.setMetadataObjectsDelegate(context.coordinator, queue: DispatchQueue.main)
+            metadataOutput.metadataObjectTypes = [.qr, .ean13]
+        } else {
+            return viewController
+        }
+        
+        let previewLayer = AVCaptureVideoPreviewLayer(session: captureSession)
+        previewLayer.frame = viewController.view.bounds
+        previewLayer.videoGravity = .resizeAspectFill
+        viewController.view.layer.addSublayer(previewLayer)
+        
+        captureSession.startRunning()
+        
+        return viewController
+    }
+
+    func updateUIViewController(_ uiViewController: UIViewController, context: Context) {}
 }
 
 // Login View Component
@@ -41,7 +138,7 @@ struct LoginView: View {
     @State private var email: String = ""
     @State private var password: String = ""
     @State private var authenticationMessage: String = ""
-    @AppStorage("isLoggedIn") private var isLoggedIn: Bool = false // Binding to AppStorage
+    @AppStorage("isLoggedIn") private var isLoggedIn: Bool = false
 
     var body: some View {
         VStack(spacing: 20) {
