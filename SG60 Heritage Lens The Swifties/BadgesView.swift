@@ -43,9 +43,6 @@ struct BadgesView: View {
                 }
                 .navigationTitle("Your Badges")
                 .navigationBarTitleDisplayMode(.inline)
-                
-                // Bottom Navigation Bar
-                BottomNavigationBar()
             }
         }
     }
@@ -224,40 +221,6 @@ struct RecentlyUnlockedItem: View {
         .padding(.horizontal)
     }
 }
-
-struct BottomNavigationBar: View {
-    var body: some View {
-        HStack {
-            BottomNavItem(icon: "house.fill", label: "Home", isSelected: false)
-            BottomNavItem(icon: "map.fill", label: "Explore", isSelected: false)
-            BottomNavItem(icon: "star.fill", label: "Badges", isSelected: true)
-            BottomNavItem(icon: "lightbulb.fill", label: "Quiz", isSelected: false)
-            BottomNavItem(icon: "person.fill", label: "Profile", isSelected: false)
-        }
-        .padding()
-        .background(Color.white)
-        .shadow(color: Color.black.opacity(0.1), radius: 5, x: 0, y: -2)
-    }
-}
-
-struct BottomNavItem: View {
-    let icon: String
-    let label: String
-    var isSelected: Bool
-    
-    var body: some View {
-        VStack {
-            Image(systemName: icon)
-                .font(.system(size: 20))
-                .foregroundColor(isSelected ? .red : .gray)
-            Text(label)
-                .font(.caption)
-                .foregroundColor(isSelected ? .red : .gray)
-        }
-        .frame(maxWidth: .infinity)
-    }
-}
-
 // MARK: - Preview
 #Preview {
     BadgesView()

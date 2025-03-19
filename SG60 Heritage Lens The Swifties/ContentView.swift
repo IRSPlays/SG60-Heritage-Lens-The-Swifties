@@ -109,15 +109,7 @@ struct ContentView: View {
                 
                 Spacer()
                 
-                // Bottom Navigation with system icons
-                HStack(spacing: 30) {
-                    NavigationLink(destination: HomeView()) { Label("Home", systemImage: "house.fill") }
-                    NavigationLink(destination: ExploreView()) { Label("Explore", systemImage: "magnifyingglass") }
-                    NavigationLink(destination: DiscoverView()) { Label("Discover", systemImage: "globe") }
-                    NavigationLink(destination: BadgesView()) { Label("Badges", systemImage: "rosette") }
-                    NavigationLink(destination: LeaderboardView()) { Label("Leaderboard", systemImage: "chart.bar.fill") }
-                    NavigationLink(destination: SettingsView()) { Label("Settings", systemImage: "gearshape.fill") }
-                }
+                BottomNavigationBar()
                 .padding()
                 .background(Color.gray.opacity(0.2))
                 .cornerRadius(10)
@@ -127,6 +119,49 @@ struct ContentView: View {
         }
     }
 }
+
+
+struct BottomNavigationBar: View {
+    var body: some View {
+        HStack {
+            NavigationView {
+                NavigationLink(destination: Text("Achievements")) {
+                    Label("Achievements", systemImage: "trophy")
+                }
+                NavigationLink(destination: Text("home")){ Label("house.fill", label: "Home")}
+                BottomNavItem(icon: "map.fill", label: "Explore", isSelected: false)
+                BottomNavItem(icon: "star.fill", label: "Badges", isSelected: true)
+                BottomNavItem(icon: "lightbulb.fill", label: "Quiz", isSelected: false)
+                BottomNavItem(icon: "person.fill", label: "Profile", isSelected: false)
+
+            }
+
+        .padding()
+        .background(Color.white)
+        .shadow(color: Color.black.opacity(0.1), radius: 5, x: 0, y: -2)
+    }
+}
+
+struct BottomNavItem: View {
+    let icon: String
+    let label: String
+    var isSelected: Bool
+    
+    var body: some View {
+        VStack {
+            Image(systemName: icon)
+                .font(.system(size: 20))
+                .foregroundColor(isSelected ? .red : .gray)
+            Text(label)
+                .font(.caption)
+                .foregroundColor(isSelected ? .red : .gray)
+        }
+        .frame(maxWidth: .infinity)
+    }
+}
+
+
+
 
 // Placeholder Views
 struct ScannerView: View { var body: some View { Text("Scanner View") } }

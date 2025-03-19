@@ -82,7 +82,7 @@ struct ProfileView: View {
                     NavigationLink(destination: Text("Achievements")) {
                         Label("Achievements", systemImage: "trophy")
                     }
-                    NavigationLink(destination: Text("Badges View")) {
+                    NavigationLink(destination: BadgesView()) {
                         Label("Badges", systemImage: "bookmark.fill")
                     }
                     NavigationLink(destination: Text("Leaderboard View")) {
