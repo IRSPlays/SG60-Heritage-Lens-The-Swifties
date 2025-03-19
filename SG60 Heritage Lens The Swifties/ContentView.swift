@@ -135,7 +135,6 @@ struct NearbyView: View { var body: some View { Text("Nearby View") } }
 struct HomeView: View { var body: some View { Text("Home View") } }
 struct ExploreView: View { var body: some View { Text("Explore View") } }
 struct DiscoverView: View { var body: some View { Text("Discover View") } }
-struct BadgesView: View { var body: some View { Text("Badges View") } }
 struct LeaderboardView: View { var body: some View { Text("Leaderboard View") } }
 
 
