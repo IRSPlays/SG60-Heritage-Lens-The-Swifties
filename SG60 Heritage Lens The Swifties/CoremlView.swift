@@ -1,62 +1,16 @@
 import SwiftUI
-import CoreML
-import Vision
 import UIKit
 
-// ViewModel for handling CoreML predictions
-class Coreml: ObservableObject {
-    @Published var image: UIImage? = nil
-    @Published var prediction: String = "Take a photo or upload an image to get a prediction"
-    
-    private var model: VNCoreMLModel?
-
-    init() {
-        loadModel()
-    }
-    
-    private func loadModel() {
-        // Make sure the model file exists
-        guard let mlModel = try? Recognition(configuration: MLModelConfiguration()) else {
-            print("Failed to load model")
-            return
-        }
-        do {
-            model = try VNCoreMLModel(for: mlModel.model)
-        } catch {
-            print("Error initializing CoreML model: \(error)")
-        }
-    }
-    
-    func predictImage() {
-        guard let image = self.image else { return }
-        guard let ciImage = CIImage(image: image) else { return }
-        
-        let request = VNCoreMLRequest(model: model!) { [weak self] request, error in
-            if let results = request.results as? [VNClassificationObservation] {
-                if let topResult = results.first {
-                    DispatchQueue.main.async {
-                        self?.prediction = "Prediction: \(topResult.identifier) with \(Int(topResult.confidence * 100))% confidence"
-                    }
-                }
-            }
-        }
-        
-        let handler = VNImageRequestHandler(ciImage: ciImage, options: [:])
-        try? handler.perform([request])
-    }
-}
-
-// Main ContentView with a nicer UI
 struct CoremlView: View {
-    @StateObject private var viewModel = Coreml() // Using Coreml ViewModel here
+    @StateObject private var viewModel = CoremlViewModel()
     @State private var isImagePickerPresented = false
-    @State private var showActionSheet = false
-    
+    @State private var imageSource: UIImagePickerController.SourceType = .photoLibrary
+
     var body: some View {
         VStack {
             Spacer()
-            
-            // Image Section
+
+            // Display selected image
             if let image = viewModel.image {
                 Image(uiImage: image)
                     .resizable()
@@ -71,22 +25,25 @@ struct CoremlView: View {
                     .foregroundColor(.gray)
                     .padding()
             }
-            
-            // Prediction Result
+
+            // Prediction Result Text Bar
             Text(viewModel.prediction)
                 .font(.title2)
                 .fontWeight(.semibold)
-                .foregroundColor(.white)
+                .foregroundColor(.black)
                 .padding()
-                .background(Color.red)
+                .background(Color.white)
                 .cornerRadius(15)
                 .padding([.leading, .trailing], 20)
-            
+                .frame(maxWidth: .infinity)
+                .border(Color.red, width: 2)
+                .shadow(radius: 5)
+
             Spacer()
-            
-            // Take a Photo or Upload Button
+
+            // Button to choose image source
             Button(action: {
-                showActionSheet.toggle()
+                showImageSourceOptions()
             }) {
                 Text("Take a Photo or Upload an Image")
                     .font(.title)
@@ -99,31 +56,10 @@ struct CoremlView: View {
                     .shadow(radius: 5)
             }
             .padding([.leading, .trailing], 20)
-            .actionSheet(isPresented: $showActionSheet) {
-                ActionSheet(
-                    title: Text("Choose an Option"),
-                    buttons: [
-                        .default(Text("Take a Photo")) {
-                            isImagePickerPresented = true
-                        },
-                        .default(Text("Choose from Library")) {
-                            isImagePickerPresented = true
-                        },
-                        .cancel()
-                    ]
-                )
-            }
-            .sheet(isPresented: $isImagePickerPresented) {
-                ImagePicker(image: $viewModel.image, sourceType: .photoLibrary)
-                    .onDisappear {
-                        if viewModel.image != nil {
-                            viewModel.predictImage()
-                        }
-                    }
-            }
-            
-            // Prediction Button
+
+            // Button to trigger prediction
             Button(action: {
+                print("Predict Image button tapped")
                 viewModel.predictImage()
             }) {
                 Text("Predict Image")
@@ -132,20 +68,39 @@ struct CoremlView: View {
                     .foregroundColor(.white)
                     .padding()
                     .frame(maxWidth: .infinity)
-                    .background(viewModel.image != nil ? Color.green : Color.gray) // Disable if no image
+                    .background(viewModel.image != nil ? Color.green : Color.gray)
                     .cornerRadius(15)
                     .shadow(radius: 5)
             }
             .disabled(viewModel.image == nil) // Disable if no image
             .padding([.leading, .trailing], 20)
-            
+
             Spacer()
         }
         .background(Color.white)
         .edgesIgnoringSafeArea(.all)
+        .sheet(isPresented: $isImagePickerPresented) {
+            ImagePickerView(image: $viewModel.image, sourceType: imageSource)
+        }
     }
-}
 
-#Preview {
-    CoremlView()
+    // Action Sheet for image source selection
+    func showImageSourceOptions() {
+        let actionSheet = UIAlertController(title: "Choose Image Source", message: nil, preferredStyle: .actionSheet)
+
+        actionSheet.addAction(UIAlertAction(title: "Take a Photo", style: .default, handler: { _ in
+            imageSource = .camera
+            isImagePickerPresented.toggle()
+        }))
+
+        actionSheet.addAction(UIAlertAction(title: "Choose from Library", style: .default, handler: { _ in
+            imageSource = .photoLibrary
+            isImagePickerPresented.toggle()
+        }))
+
+        actionSheet.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+
+        // Present action sheet
+        UIApplication.shared.windows.first?.rootViewController?.present(actionSheet, animated: true)
+    }
 }

@@ -30,6 +30,18 @@ let LocalLife = 0
 let FestivalFollower = 0
 let NostalgicHunter = 0
 let ArtExplorer = 0
+let Merlion
+let MarinaBaySands
+let RafflesHottle
+let Gardens_By_The_Bay
+let Sentosa
+let SultanMosque
+let BhuddaToothRelicTemple
+let Char_Kway_Teow
+let ChickenRice
+let Chilicrab
+let chilicrab
+
 
 
 
