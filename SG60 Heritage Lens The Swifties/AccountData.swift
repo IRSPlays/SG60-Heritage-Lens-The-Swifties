@@ -6,6 +6,7 @@
 //
 
 import Foundation
+let
 let ProgressBarLevel = 0
 let TotalNumberOfBadgesEarned = 0
 let TotalNumberOfBadgesLocked = 18

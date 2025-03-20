@@ -80,7 +80,7 @@ struct ContentView: View {
                 }
                 .padding()
                 
-                NavigationLink(destination: HomepageView(), isActive: $isAuthenticated) {
+                NavigationLink(destination: NavigationTab(), isActive: $isAuthenticated) {
                     EmptyView()
                 }
             }
