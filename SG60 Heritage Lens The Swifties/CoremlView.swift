@@ -70,12 +70,10 @@ struct CoremlView: View {
                 .shadow(radius: 5)
 
             // Display additional info based on prediction
-            if let prediction = viewModel.prediction {
-                Text(getInformation(for: prediction))
-                    .font(.body)
-                    .foregroundColor(.black)
-                    .padding()
-            }
+            Text(getInformation(for: cleanPrediction(viewModel.prediction)))
+                .font(.body)
+                .foregroundColor(.black)
+                .padding()
 
             Spacer()
 
@@ -140,6 +138,15 @@ struct CoremlView: View {
 
         // Present action sheet
         UIApplication.shared.windows.first?.rootViewController?.present(actionSheet, animated: true)
+    }
+
+    // Function to clean the prediction by removing "The Prediction:" and " with 99% Confidence"
+    func cleanPrediction(_ prediction: String) -> String {
+        // Remove the "The Prediction: " part and " with X% Confidence"
+        let cleanedPrediction = prediction
+            .replacingOccurrences(of: "The Prediction: ", with: "")  // Remove "The Prediction: "
+            .replacingOccurrences(of: " with \\d+% confidence", with: "", options: .regularExpression) // Remove confidence part
+        return cleanedPrediction
     }
 
     // Function to return the corresponding information based on prediction
