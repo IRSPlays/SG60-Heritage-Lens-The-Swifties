@@ -71,7 +71,7 @@ struct HomepageView: View {
                         .font(.headline)
                         .padding(.bottom, 5)
                     
-                    Text("Point your camera at a Singapore landmark")
+                    Text("Point your camera at a landmark")
                         .font(.subheadline)
                         .multilineTextAlignment(.center)
                         .padding(.horizontal, 20)
@@ -98,7 +98,7 @@ struct HomepageView: View {
                     Text("How to use the scanner")
                         .font(.headline)
                     
-                    Text("1. Aim your camera at a Singapore landmark or heritage site")
+                    Text("1. Aim your camera at a Singapore landmark")
                     Text("2. Hold steady while the AI analyzes the image")
                     Text("3. Explore rich historical information and earn badges")
                     Text("4. View then-and-now comparisons with historical overlays")
