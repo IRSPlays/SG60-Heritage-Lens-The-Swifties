@@ -30,13 +30,10 @@ let LocalLife = 0
 let FestivalFollower = 0
 let NostalgicHunter = 0
 let ArtExplorer = 0
-let Merlion
-let MarinaBaySands
-let Raffles_Hotel = ""
 let Gardens_By_The_Bay = ""
 let Sentosa = ""
-let SultanMosque = ""
-let BhuddaToothRelicTemple = ""
+let Sultan_Mosque = ""
+let Bhudda_Tooth_Relic_Temple = ""
 let Char_Kway_Teow = ""
 let ChickenRice = ""
 let Chili_Crab = ""
@@ -44,7 +41,6 @@ let Dragon_Playground = ""
 let East_Coast_Park = ""
 let Esplanade = ""
 let Former_Supreme_Court = ""
-let Gardens_By_The_Bay = ""
 let HDB_Flats = ""
 let Hokkien_Mee = ""
 let Kaya_Toast = ""
@@ -59,9 +55,9 @@ let Rojak = ""
 let SG_Flag = ""
 let Satay = ""
 let Singapore_Public_Bus = ""
-let Sri_Mariamman_Temple = "
+let Sri_Mariamman_Temple = ""
 let St_Andrews_Cathedral = ""
-let Sultan_Mosque = ""
+
 let Vanda_Miss_Joaquim = ""
 
 
