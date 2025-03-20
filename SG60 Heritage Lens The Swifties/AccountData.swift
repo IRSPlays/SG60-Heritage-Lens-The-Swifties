@@ -57,7 +57,6 @@ let Satay = ""
 let Singapore_Public_Bus = ""
 let Sri_Mariamman_Temple = ""
 let St_Andrews_Cathedral = ""
-
 let Vanda_Miss_Joaquim = ""
 
 

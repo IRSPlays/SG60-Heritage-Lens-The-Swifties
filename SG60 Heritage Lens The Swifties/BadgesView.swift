@@ -91,53 +91,10 @@ struct BadgesView: View {
                 
                 Spacer()
                 
-                HStack {
-                    Spacer()
-                    NavigationLink(destination: HomepageView()) {
-                        VStack {
-                            Image(systemName: "house.fill")
-                            Text("Home")
-                        }
-                    }
-                    Spacer()
-                    NavigationLink(destination: ExplorerView()) {
-                        VStack {
-                            Image(systemName: "map.fill")
-                            Text("Explore")
-                        }
-                    }
-                    Spacer()
-                    NavigationLink(destination: BadgesView()) {
-                        VStack {
-                            Image(systemName: "star.fill")
-                            Text("Badges")
-                        }
-                    }
-                    Spacer()
-                    NavigationLink(destination: ProfileView()) {
-                        VStack {
-                            Image(systemName: "person.fill")
-                            Text("Profile")
-                        }
-                    }
-                    Spacer()
-                    NavigationLink(destination: SettingsView()) {
-                        VStack {
-                            Image(systemName: "gearshape.fill")
-                            Text("Settings")
-                        }
-                    }
-                    Spacer()
-                }
-                .padding()
-                .background(Color(UIColor.systemGray6))
-                .cornerRadius(10)
                 
-                .navigationBarTitle("Your Badges", displayMode: .inline)
             }
         }
     }
-    
     
 }
 struct BadgesView_Previews: PreviewProvider {
