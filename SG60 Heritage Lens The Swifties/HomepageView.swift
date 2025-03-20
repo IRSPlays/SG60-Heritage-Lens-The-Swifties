@@ -31,7 +31,7 @@ struct HomepageView: View {
                 
                 // Navigation Tabs with system icons
                 HStack(spacing: 9) {
-                    NavigationLink(destination: Coreml_PageView()) {
+                    NavigationLink(destination: CoremlView()) {
                         Label("Scanner", systemImage: "camera.viewfinder")
                             .padding()
                             .frame(maxWidth: .infinity)
@@ -84,7 +84,7 @@ struct HomepageView: View {
                             .frame(maxWidth: .infinity)
                             .background(Color.red)
                             .cornerRadius(10)
-                        NavigationLink (destination : Coreml_PageView()) {}
+                        NavigationLink (destination : CoremlView()) {}
                     }
                     .padding(.horizontal, 20)
                 }
