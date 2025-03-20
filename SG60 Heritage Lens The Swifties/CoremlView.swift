@@ -70,7 +70,7 @@ struct CoremlView: View {
                 .shadow(radius: 5)
 
             // Display additional info based on prediction
-            Text(getInformation(for: cleanPrediction(viewModel.prediction)))
+            Text(getInformation(for: cleanPrediction(viewModel.prediction))) // This should show the relevant info based on the cleaned prediction
                 .font(.body)
                 .foregroundColor(.black)
                 .padding()
@@ -151,62 +151,65 @@ struct CoremlView: View {
 
     // Function to return relevant information based on the prediction
     func getInformation(for prediction: String) -> String {
-        switch prediction {
-        case Gardens_By_The_Bay:
+        // Convert both the prediction and cases to lowercase to make the comparison case-insensitive
+        let lowercasedPrediction = prediction.lowercased()
+
+        switch lowercasedPrediction {
+        case Gardens_By_The_Bay.lowercased():
             return "Gardens by the Bay is a futuristic park located in the heart of Singapore, featuring iconic supertrees, cloud forests, and breathtaking landscapes."
-        case Sentosa:
+        case Sentosa.lowercased():
             return "Sentosa is a popular resort island in Singapore, known for its beaches, luxury resorts, theme parks, and attractions like Universal Studios Singapore."
-        case Sultan_Mosque:
+        case Sultan_Mosque.lowercased():
             return "The Sultan Mosque is a historic mosque located in Kampong Glam, Singapore. It is a stunning example of Islamic architecture."
-        case Bhudda_Tooth_Relic_Temple:
+        case Bhudda_Tooth_Relic_Temple.lowercased():
             return "The Buddha Tooth Relic Temple is a Buddhist temple in Chinatown, Singapore, housing a relic believed to be a tooth of the Buddha."
-        case Char_Kway_Teow:
+        case Char_Kway_Teow.lowercased():
             return "Char Kway Teow is a popular Singaporean stir-fried noodle dish made with flat rice noodles, eggs, prawns, and a variety of savory ingredients."
-        case ChickenRice:
+        case ChickenRice.lowercased():
             return "Chicken Rice is a famous Singaporean dish consisting of poached or roasted chicken served with rice cooked in chicken fat, accompanied by chili sauce."
-        case Chili_Crab:
+        case Chili_Crab.lowercased():
             return "Chili Crab is a famous Singaporean seafood dish made with crab cooked in a sweet, spicy, and tangy chili sauce."
-        case Dragon_Playground:
+        case Dragon_Playground.lowercased():
             return "Dragon Playground is a colorful and unique playground in Singapore shaped like a dragon, a nostalgic feature from Singapore's past."
-        case East_Coast_Park:
+        case East_Coast_Park.lowercased():
             return "East Coast Park is a beautiful coastal park in Singapore, offering cycling paths, beaches, and a wide range of recreational activities."
-        case Esplanade:
+        case Esplanade.lowercased():
             return "The Esplanade – Theatres on the Bay is an iconic performing arts center in Singapore, known for its distinctive architecture and vibrant performances."
-        case Former_Supreme_Court:
+        case Former_Supreme_Court.lowercased():
             return "The Former Supreme Court is a historical building in Singapore, now housing the National Gallery Singapore, a museum dedicated to Southeast Asian art."
-        case HDB_Flats:
+        case HDB_Flats.lowercased():
             return "HDB Flats are public housing developments in Singapore, providing affordable housing for the majority of Singaporeans."
-        case Hokkien_Mee:
+        case Hokkien_Mee.lowercased():
             return "Hokkien Mee is a Singaporean noodle dish made with stir-fried noodles, prawns, squid, and a savory broth, typically served with chili sauce."
-        case Kaya_Toast:
+        case Kaya_Toast.lowercased():
             return "Kaya Toast is a traditional Singaporean breakfast snack consisting of toasted bread spread with kaya (coconut jam) and butter, often served with eggs."
-        case Kopitiam:
+        case Kopitiam.lowercased():
             return "Kopitiam is a traditional coffee shop in Singapore, offering a variety of local dishes like kaya toast, laksa, and kopi (coffee)."
-        case LRT:
+        case LRT.lowercased():
             return "The LRT (Light Rail Transit) is a rapid transit system in Singapore, providing convenient transport to residential areas and the outskirts."
-        case Laksa:
+        case Laksa.lowercased():
             return "Laksa is a spicy noodle soup, often served with prawns or chicken, in a rich, aromatic coconut milk broth."
-        case MBS_Hotel:
+        case MBS_Hotel.lowercased():
             return "Marina Bay Sands is an iconic luxury hotel in Singapore, famous for its unique design, rooftop infinity pool, and panoramic views of the city."
-        case MRT:
+        case MRT.lowercased():
             return "The MRT (Mass Rapid Transit) is Singapore's extensive and efficient subway system, connecting all major areas of the city."
-        case Merlion:
+        case Merlion.lowercased():
             return "The Merlion is a famous Singaporean landmark, symbolizing the city's heritage as a fishing port, with a lion's head and fish body."
-        case Nasi_Lemak:
+        case Nasi_Lemak.lowercased():
             return "Nasi Lemak is a Malaysian and Singaporean dish of coconut rice, usually served with fried chicken, eggs, and sambal."
-        case Rojak:
+        case Rojak.lowercased():
             return "Rojak is a popular fruit and vegetable salad dish in Singapore, often served with a sweet and spicy dressing."
-        case SG_Flag:
+        case SG_Flag.lowercased():
             return "The Singapore Flag represents the nation's history, featuring a crescent moon and five stars representing the country's ideals of democracy and peace."
-        case Satay:
+        case Satay.lowercased():
             return "Satay is a popular dish in Singapore consisting of skewered, grilled meat served with a peanut sauce."
-        case Singapore_Public_Bus:
+        case Singapore_Public_Bus.lowercased():
             return "Singapore's public buses are an affordable and efficient mode of transport, serving all parts of the island."
-        case Sri_Mariamman_Temple:
+        case Sri_Mariamman_Temple.lowercased():
             return "Sri Mariamman Temple is the oldest Hindu temple in Singapore, dedicated to the goddess Mariamman, known for its vibrant architecture."
-        case St_Andrews_Cathedral:
+        case St_Andrews_Cathedral.lowercased():
             return "St. Andrews Cathedral is the largest cathedral in Singapore, a symbol of the Anglican faith, known for its neo-gothic architecture."
-        case Vanda_Miss_Joaquim:
+        case Vanda_Miss_Joaquim.lowercased():
             return "Vanda Miss Joaquim is Singapore's national flower, a hybrid orchid named after the botanist who cultivated it."
         default:
             return "No additional information available."
