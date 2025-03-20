@@ -16,6 +16,14 @@
 		1803114B2D8AB16E0042B157 /* Realtime in Frameworks */ = {isa = PBXBuildFile; productRef = 1803114A2D8AB16E0042B157 /* Realtime */; };
 		1803114D2D8AB16E0042B157 /* Storage in Frameworks */ = {isa = PBXBuildFile; productRef = 1803114C2D8AB16E0042B157 /* Storage */; };
 		180311502D8AB3300042B157 /* Supabase in Frameworks */ = {isa = PBXBuildFile; productRef = 1803114F2D8AB3300042B157 /* Supabase */; };
+		181EFB942D8BC0E8002D9A08 /* Vision.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 181EFB912D8BC0E3002D9A08 /* Vision.framework */; };
+		181EFB952D8BC0E8002D9A08 /* Vision.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 181EFB912D8BC0E3002D9A08 /* Vision.framework */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		181EFB972D8BC0E9002D9A08 /* VisionKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 181EFB902D8BC0E3002D9A08 /* VisionKit.framework */; };
+		181EFB982D8BC0E9002D9A08 /* VisionKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 181EFB902D8BC0E3002D9A08 /* VisionKit.framework */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		181EFB992D8BC0EB002D9A08 /* RealityKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 181EFB8C2D8BC0D4002D9A08 /* RealityKit.framework */; };
+		181EFB9A2D8BC0EB002D9A08 /* RealityKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 181EFB8C2D8BC0D4002D9A08 /* RealityKit.framework */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		181EFB9B2D8BC0EC002D9A08 /* RealityFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 181EFB8D2D8BC0D4002D9A08 /* RealityFoundation.framework */; };
+		181EFB9C2D8BC0EC002D9A08 /* RealityFoundation.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 181EFB8D2D8BC0D4002D9A08 /* RealityFoundation.framework */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,10 +43,31 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		181EFB962D8BC0E8002D9A08 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				181EFB9C2D8BC0EC002D9A08 /* RealityFoundation.framework in Embed Frameworks */,
+				181EFB9A2D8BC0EB002D9A08 /* RealityKit.framework in Embed Frameworks */,
+				181EFB952D8BC0E8002D9A08 /* Vision.framework in Embed Frameworks */,
+				181EFB982D8BC0E9002D9A08 /* VisionKit.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		180310442D8A6BC50042B157 /* SG60 Heritage Lens The Swifties.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "SG60 Heritage Lens The Swifties.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		180310542D8A6BC70042B157 /* SG60 Heritage Lens The SwiftiesTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "SG60 Heritage Lens The SwiftiesTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1803105E2D8A6BC70042B157 /* SG60 Heritage Lens The SwiftiesUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "SG60 Heritage Lens The SwiftiesUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		181EFB8C2D8BC0D4002D9A08 /* RealityKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RealityKit.framework; path = System/Library/Frameworks/RealityKit.framework; sourceTree = SDKROOT; };
+		181EFB8D2D8BC0D4002D9A08 /* RealityFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RealityFoundation.framework; path = System/Library/Frameworks/RealityFoundation.framework; sourceTree = SDKROOT; };
+		181EFB902D8BC0E3002D9A08 /* VisionKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = VisionKit.framework; path = System/Library/Frameworks/VisionKit.framework; sourceTree = SDKROOT; };
+		181EFB912D8BC0E3002D9A08 /* Vision.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Vision.framework; path = System/Library/Frameworks/Vision.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -65,14 +94,18 @@
 			buildActionMask = 2147483647;
 			files = (
 				180311502D8AB3300042B157 /* Supabase in Frameworks */,
+				181EFB992D8BC0EB002D9A08 /* RealityKit.framework in Frameworks */,
 				1803114B2D8AB16E0042B157 /* Realtime in Frameworks */,
 				180311262D8AB07C0042B157 /* PostgREST in Frameworks */,
 				180311242D8AB07C0042B157 /* Functions in Frameworks */,
+				181EFB942D8BC0E8002D9A08 /* Vision.framework in Frameworks */,
 				180311222D8AB07C0042B157 /* Auth in Frameworks */,
 				180311492D8AB16E0042B157 /* PostgREST in Frameworks */,
 				180311472D8AB16E0042B157 /* Functions in Frameworks */,
 				1803114D2D8AB16E0042B157 /* Storage in Frameworks */,
+				181EFB972D8BC0E9002D9A08 /* VisionKit.framework in Frameworks */,
 				180311282D8AB07C0042B157 /* Realtime in Frameworks */,
+				181EFB9B2D8BC0EC002D9A08 /* RealityFoundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -117,6 +150,10 @@
 		1803112B2D8AB1220042B157 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				181EFB912D8BC0E3002D9A08 /* Vision.framework */,
+				181EFB902D8BC0E3002D9A08 /* VisionKit.framework */,
+				181EFB8D2D8BC0D4002D9A08 /* RealityFoundation.framework */,
+				181EFB8C2D8BC0D4002D9A08 /* RealityKit.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -131,6 +168,7 @@
 				180310402D8A6BC50042B157 /* Sources */,
 				180310412D8A6BC50042B157 /* Frameworks */,
 				180310422D8A6BC50042B157 /* Resources */,
+				181EFB962D8BC0E8002D9A08 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);

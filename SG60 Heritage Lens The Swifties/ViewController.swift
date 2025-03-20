@@ -1,26 +1,19 @@
-//
-//  Coreml PageView.swift
-//  SG60 Heritage Lens The Swifties
-//
-//  Created by Apple on 19/3/25.
-//
-
-import SwiftUI
+import UIKit
 import ARKit
 import RealityKit
 import CoreML
 import Vision
 import SwiftUI
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, ARSessionDelegate {
     
     @IBOutlet var arView: ARView!  // AR View to display the camera feed
     @IBOutlet var classificationLabel: UILabel!  // Label to show classification result (optional)
-
+    
     // CoreML Model
     var visionRequest: VNCoreMLRequest!
     
-    // Classification result
+    // Classification result - using a binding to pass the result to the SwiftUI view
     @State private var classificationResult: String = "Loading..."
     
     override func viewDidLoad() {
@@ -48,6 +41,7 @@ class ViewController: UIViewController {
         let configuration = ARWorldTrackingConfiguration()
         configuration.planeDetection = .horizontal
         arView.session.run(configuration)
+        arView.session.delegate = self
     }
     
     // MARK: - Vision Request Handler
@@ -104,37 +98,17 @@ class ViewController: UIViewController {
         let pixelBuffer = frame.capturedImage
         performVisionRequest(on: pixelBuffer)
     }
-}
-
-// MARK: - SwiftUI Content View
-struct ContentView: View {
-    @State private var classificationResult: String = "Loading..."
     
-    var body: some View {
-        VStack {
-            // Show the SwiftUI view for classification result
-            Coreml_PageView(classificationResult: classificationResult)
-                .onAppear {
-                    // This could be tied to AR updates if you integrate ARKit with SwiftUI
-                    // Update with the classification result dynamically
-                    // For now, we can set a test classification result
-                    self.classificationResult = "Detected: Sample Object"
-                }
-            
-            // Optionally, show additional UI elements like AR session status or info
-        }
-        .onAppear {
-            // Initialize or trigger ARKit logic here, or connect to ViewController
-        }
+    // MARK: - SwiftUI Content View
+    func showCoremlPageView() -> some View {
+        Coreml_PageView(classificationResult: $classificationResult) // Bind the classification result to the Coreml_PageView
+    }
+    
+    // Function to show the SwiftUI view inside the ViewController (optional, if you need it in the ViewController)
+    func displayCoremlPageView() {
+        let coremlPageView = showCoremlPageView()
+        let hostingController = UIHostingController(rootView: coremlPageView)
+        present(hostingController, animated: true, completion: nil)
     }
 }
 
-struct ContentView_Previews: PreviewProvider {
-    static var previews: some View {
-        ContentView()
-    }
-}
-
-#Preview {
-    Coreml_PageView()
-}

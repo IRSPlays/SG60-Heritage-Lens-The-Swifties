@@ -1,8 +1,7 @@
+// ProfileView.swift
+// SG60 Heritage Lens The Swifties
 //
-//  ProfileView.swift
-//  SG60 Heritage Lens The Swifties
-//
-//  Created by Sp on 19/3/25.
+// Created by Sp on 19/3/25.
 //
 
 import SwiftUI
@@ -91,6 +90,52 @@ struct ProfileView: View {
                 }
 
                 Spacer()
+
+                // Bottom Navigation Bar
+                HStack {
+                    Spacer()
+                    NavigationLink(destination: HomepageView()) {
+                        VStack {
+                            Image(systemName: "house.fill")
+                            Text("Home")
+                        }
+                    }
+                    Spacer()
+                    NavigationLink(destination: ExplorerView()) {
+                        VStack {
+                            Image(systemName: "map.fill")
+                            Text("Explore")
+                        }
+                    }
+                    Spacer()
+                    NavigationLink(destination: BadgesView()) {
+                        VStack {
+                            Image(systemName: "star.fill")
+                            Text("Badges")
+                        }
+                    }
+                    Spacer()
+                    NavigationLink(destination: ProfileView()) {
+                        VStack {
+                            Image(systemName: "person.fill")
+                            Text("Profile")
+                        }
+                    }
+                    Spacer()
+                    NavigationLink(destination: SettingsView()) {
+                        VStack {
+                            Image(systemName: "gearshape.fill")
+                            Text("Settings")
+                        }
+                    }
+                    Spacer()
+                }
+                .padding()
+                .background(Color(UIColor.systemGray6))
+                .cornerRadius(10)
+                .frame(height: 60)
+                .background(Color.white)
+                .shadow(radius: 5)
             }
             .navigationTitle("Profile")
             .toolbar {
@@ -98,13 +143,9 @@ struct ProfileView: View {
                     Image(systemName: "gearshape.fill")
                 }
             }
-            .tabItem {
-                Label("Profile", systemImage: "person.fill")
-            }
         }
     }
 }
-
 
 #Preview {
     ProfileView()
