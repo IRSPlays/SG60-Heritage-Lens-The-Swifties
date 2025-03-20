@@ -6,7 +6,7 @@
 //
 
 import Foundation
-let
+let AIPrediction = ""
 let ProgressBarLevel = 0
 let TotalNumberOfBadgesEarned = 0
 let TotalNumberOfBadgesLocked = 18
