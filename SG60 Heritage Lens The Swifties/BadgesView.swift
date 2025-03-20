@@ -12,216 +12,142 @@
 //  Created by Apple on 19/3/25.
 //
 
-import SwiftUI
+
 import RealityKit
-
-
 import SwiftUI
+
+struct Badge: Identifiable {
+    let id = UUID()
+    let name: String
+    var progress: Int
+    let icon: String
+    
+    var completionPercentage: Double {
+        return min(Double(progress) / 10.0 * 100.0, 100.0)
+    }
+    
+    var isCompleted: Bool {
+        return progress >= 10
+    }
+}
 
 struct BadgesView: View {
+    @State var badges: [Badge] = [
+        Badge(name: "Colonial Heritage", progress: ColonialHeritage, icon: "rosette"),
+        Badge(name: "Modern Marvel", progress: ModernMarvel, icon: "rosette"),
+        Badge(name: "Cultural Explorer", progress: CulturalExplorer, icon: "rosette"),
+        Badge(name: "Marina Master", progress: MarinaMaster, icon: "map"),
+        Badge(name: "History Buff", progress: HistoryPro, icon: "book"),
+        Badge(name: "SG Linguist", progress: SGLinguist, icon: "character.book.closed"),
+        Badge(name: "Botanist", progress: Botanist, icon: "leaf"),
+        Badge(name: "Heritage Explorer", progress: HeritageExplorer, icon: "camera"),
+        Badge(name: "Collection Complete", progress: CollectionComplete, icon: "archivebox.fill"),
+        Badge(name: "Hawker Pro", progress: HawkerPro, icon: "fork.knife"),
+        Badge(name: "Religious Harmony", progress: 0, icon: "hands.clap"),
+        Badge(name: "Transit Pro", progress: TransitPro, icon: "tram.fill"),
+        Badge(name: "Nature Wanderer", progress: NatureWanderer, icon: "tree"),
+        Badge(name: "Local Life", progress: LocalLife, icon: "person.2"),
+        Badge(name: "Festival Follower", progress: FestivalFollower, icon: "sparkles"),
+        Badge(name: "Nostalgic Hunter", progress: NostalgicHunter, icon: "hourglass"),
+        Badge(name: "Art Explorer", progress: ArtExplorer, icon: "paintbrush"),
+    ]
+    
+    var totalBadges: Int {
+        return badges.count
+    }
+    
+    var earnedBadges: Int {
+        return badges.filter { $0.isCompleted }.count
+    }
+    
     var body: some View {
         NavigationView {
-            VStack(spacing: 0) {
+            VStack {
+                Text("Your Heritage Badges")
+                    .font(.title2).bold()
+                    .padding(.top)
+                
+                Text("Earned: \(earnedBadges) / \(totalBadges)")
+                    .font(.subheadline)
+                    .foregroundColor(.gray)
+                    .padding(.bottom)
+                
                 ScrollView {
-                    VStack(alignment: .leading, spacing: 16) {
-                        
-                        // Header Section
-                        headerSection
-                        
-                        // Filter Buttons
-                        filterButtons
-                        
-                        // Badges Grid
-                        badgesGrid
-                        
-                        // Recently Unlocked Section
-                        recentlyUnlockedSection
-                        
-                        // Coming Soon Section
-                        comingSoonSection
+                    LazyVGrid(columns: Array(repeating: GridItem(.flexible()), count: 3), spacing: 20) {
+                        ForEach(badges) { badge in
+                            VStack {
+                                Image(systemName: badge.icon)
+                                    .font(.largeTitle)
+                                    .foregroundColor(badge.isCompleted ? .yellow : .gray)
+                                Text(badge.name)
+                                    .font(.caption)
+                                ProgressView(value: badge.completionPercentage, total: 100)
+                                    .progressViewStyle(LinearProgressViewStyle(tint: badge.isCompleted ? .green : .red))
+                                    .frame(width: 80)
+                            }
+                        }
                     }
                 }
-                .navigationTitle("Your Badges")
-                .navigationBarTitleDisplayMode(.inline)
+                
+                Spacer()
+                
+                HStack {
+                    Spacer()
+                    NavigationLink(destination: HomepageView()) {
+                        VStack {
+                            Image(systemName: "house.fill")
+                            Text("Home")
+                        }
+                    }
+                    Spacer()
+                    NavigationLink(destination: ExplorerView()) {
+                        VStack {
+                            Image(systemName: "map.fill")
+                            Text("Explore")
+                        }
+                    }
+                    Spacer()
+                    NavigationLink(destination: BadgesView()) {
+                        VStack {
+                            Image(systemName: "star.fill")
+                            Text("Badges")
+                        }
+                    }
+                    Spacer()
+                    NavigationLink(destination: ProfileView()) {
+                        VStack {
+                            Image(systemName: "person.fill")
+                            Text("Profile")
+                        }
+                    }
+                    Spacer()
+                    NavigationLink(destination: SettingsView()) {
+                        VStack {
+                            Image(systemName: "gearshape.fill")
+                            Text("Settings")
+                        }
+                    }
+                    Spacer()
+                }
+                .padding()
+                .background(Color(UIColor.systemGray6))
+                .cornerRadius(10)
+                
+                .navigationBarTitle("Your Badges", displayMode: .inline)
             }
         }
     }
     
-    // MARK: Subsections
-    var headerSection: some View {
-        VStack(alignment: .leading, spacing: 8) {
-            Text("Your Heritage Badges")
-                .font(.title2)
-                .bold()
-            Text("Collect badges as you explore Singapore’s heritage")
-                .font(.subheadline)
-                .foregroundColor(.secondary)
-            
-            HStack {
-                BadgeSummaryItem(title: "1", subtitle: "Unlocked")
-                BadgeSummaryItem(title: "15", subtitle: "In Progress")
-                BadgeSummaryItem(title: "18", subtitle: "Total Badges")
-            }
-        }
-        .padding(.horizontal)
-    }
     
-    var filterButtons: some View {
-        HStack(spacing: 8) {
-            FilterButton(label: "All", isSelected: true)
-            FilterButton(label: "Unlocked")
-            FilterButton(label: "In Progress")
-        }
-        .padding(.horizontal)
-    }
-    
-    var badgesGrid: some View {
-        LazyVGrid(columns: [GridItem(.flexible()), GridItem(.flexible()), GridItem(.flexible())],
-                  spacing: 16) {
-            BadgeItem(title: "Colonial Heritage", progress: 40)
-            BadgeItem(title: "Modern Marvel", progress: 60)
-            BadgeItem(title: "Cultural Explorer", progress: 30)
-            BadgeItem(title: "Festival Follower", progress: 15)
-            BadgeItem(title: "Nostalgia Hunter", progress: 20)
-            BadgeItem(title: "Art Explorer", progress: 5)
-            BadgeItem(title: "Foodie Trail", progress: 70)
-            BadgeItem(title: "Nature Seeker", progress: 50)
-            BadgeItem(title: "Museum Master", progress: 10)
-        }
-        .padding(.horizontal)
-    }
-    
-    var recentlyUnlockedSection: some View {
-        VStack(alignment: .leading) {
-            Text("Recently Unlocked")
-                .font(.headline)
-                .padding(.horizontal)
-                .padding(.top)
-            
-            RecentlyUnlockedItem(
-                title: "Marina Master",
-                description: "Discover all Marina Bay attractions"
-            )
-        }
-    }
-    
-    var comingSoonSection: some View {
-        VStack {
-            Text("Coming Soon")
-                .font(.title3)
-                .bold()
-            Text("Complete quizzes about Singapore’s heritage to earn special badges")
-                .font(.subheadline)
-                .multilineTextAlignment(.center)
-                .foregroundColor(.secondary)
-                .padding(.horizontal)
-            
-            Button(action: {
-                // Action for "Get Notified"
-            }) {
-                Text("Get Notified")
-                    .font(.headline)
-                    .frame(maxWidth: .infinity)
-                    .padding()
-                    .background(Color.red)
-                    .foregroundColor(.white)
-                    .cornerRadius(8)
-            }
-            .padding(.horizontal)
-        }
-        .padding(.vertical)
+}
+struct BadgesView_Previews: PreviewProvider {
+    static var previews: some View {
+        BadgesView()
     }
 }
 
-// MARK: - Subviews
-
-struct BadgeSummaryItem: View {
-    let title: String
-    let subtitle: String
-    
-    var body: some View {
-        VStack {
-            Text(title)
-                .font(.title)
-                .bold()
-            Text(subtitle)
-                .font(.footnote)
-                .foregroundColor(.secondary)
-        }
-        .frame(maxWidth: .infinity)
-    }
-}
-
-struct FilterButton: View {
-    let label: String
-    var isSelected: Bool = false
-    
-    var body: some View {
-        Text(label)
-            .font(.subheadline)
-            .fontWeight(isSelected ? .bold : .regular)
-            .padding(8)
-            .frame(maxWidth: .infinity)
-            .background(isSelected ? Color.red : Color.clear)
-            .foregroundColor(isSelected ? .white : .black)
-            .cornerRadius(8)
-            .overlay(
-                RoundedRectangle(cornerRadius: 8)
-                    .stroke(Color.red, lineWidth: isSelected ? 0 : 1)
-            )
-    }
-}
-
-struct BadgeItem: View {
-    let title: String
-    let progress: Int
-    
-    var body: some View {
-        VStack {
-            Circle()
-                .strokeBorder(Color.gray.opacity(0.4), lineWidth: 3)
-                .frame(width: 60, height: 60)
-                .overlay(
-                    Text("\(progress)%")
-                        .font(.footnote)
-                        .foregroundColor(.secondary)
-                )
-            Text(title)
-                .font(.caption)
-                .multilineTextAlignment(.center)
-                .lineLimit(2)
-        }
-    }
-}
-
-struct RecentlyUnlockedItem: View {
-    let title: String
-    let description: String
-    
-    var body: some View {
-        HStack {
-            Circle()
-                .fill(Color.yellow.opacity(0.5))
-                .frame(width: 40, height: 40)
-            
-            VStack(alignment: .leading) {
-                Text(title)
-                    .font(.subheadline)
-                    .bold()
-                Text(description)
-                    .font(.caption)
-                    .foregroundColor(.secondary)
-            }
-            
-            Spacer()
-        }
-        .padding()
-        .background(Color.gray.opacity(0.1))
-        .cornerRadius(8)
-        .padding(.horizontal)
-    }
-}
 // MARK: - Preview
+    
 #Preview {
     BadgesView()
 }

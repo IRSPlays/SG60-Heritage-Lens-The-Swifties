@@ -1,12 +1,12 @@
+// SwiftUIView.swift
+// SG60 Heritage Lens The Swifties
 //
-//  SwiftUIView.swift
-//  SG60 Heritage Lens The Swifties
-//
-//  Created by Apple on 19/3/25.
+// Created by Apple on 19/3/25.
 //
 
 import SwiftUI
 
+// Main Homepage View
 struct HomepageView: View {
     var body: some View {
         NavigationView {
@@ -31,7 +31,7 @@ struct HomepageView: View {
                 
                 // Navigation Tabs with system icons
                 HStack(spacing: 9) {
-                    NavigationLink(destination: Text("Scanner()")) {
+                    NavigationLink(destination: Coreml_PageView()) {
                         Label("Scanner", systemImage: "camera.viewfinder")
                             .padding()
                             .frame(maxWidth: .infinity)
@@ -40,7 +40,7 @@ struct HomepageView: View {
                             .cornerRadius(10)
                             .fixedSize()
                     }
-                    NavigationLink(destination: Text("FeaturedView")) {
+                    NavigationLink(destination: ExplorerView()) {
                         Label("Featured", systemImage: "star.fill")
                             .padding()
                             .frame(maxWidth: .infinity)
@@ -48,7 +48,7 @@ struct HomepageView: View {
                             .cornerRadius(10)
                             .fixedSize()
                     }
-                    NavigationLink(destination: Text("NearbyView()")) {
+                    NavigationLink(destination: ExplorerView()) {
                         Label("Nearby", systemImage: "mappin.and.ellipse")
                             .padding()
                             .frame(maxWidth: .infinity)
@@ -84,6 +84,7 @@ struct HomepageView: View {
                             .frame(maxWidth: .infinity)
                             .background(Color.red)
                             .cornerRadius(10)
+                        NavigationLink (destination : Coreml_PageView()) {}
                     }
                     .padding(.horizontal, 20)
                 }
@@ -93,7 +94,7 @@ struct HomepageView: View {
                 .shadow(radius: 5)
                 
                 // Scanner Guide
-                VStack(alignment: .leading, spacing: 10) {
+                VStack(alignment: .leading, spacing: 8) {
                     Text("How to use the scanner")
                         .font(.headline)
                     
@@ -109,54 +110,66 @@ struct HomepageView: View {
                 
                 Spacer()
                 
-                .padding()
-                .background(Color.gray.opacity(0.2))
-                .cornerRadius(10)
             }
             .padding()
             .navigationTitle("")
+            .overlay(BottomNavBar(), alignment: .bottom)
         }
-        
     }
 }
 
-
-    struct BottomNavItem: View {
-        let icon: String
-        let label: String
-        var isSelected: Bool
-        
-        var body: some View {
-            VStack {
-                Image(systemName: icon)
-                    .font(.system(size: 20))
-                    .foregroundColor(isSelected ? .red : .gray)
-                Text(label)
-                    .font(.caption)
-                    .foregroundColor(isSelected ? .red : .gray)
+// Bottom Navigation Bar with your desired HStack layout
+struct BottomNavBar: View {
+    var body: some View {
+        HStack {
+            Spacer()
+            NavigationLink(destination: HomepageView()) {
+                VStack {
+                    Image(systemName: "house.fill")
+                    Text("Home")
+                }
             }
-            .frame(maxWidth: .infinity)
+            Spacer()
+            NavigationLink(destination: ExplorerView()) {
+                VStack {
+                    Image(systemName: "map.fill")
+                    Text("Explore")
+                }
+            }
+            Spacer()
+            NavigationLink(destination: BadgesView()) {
+                VStack {
+                    Image(systemName: "star.fill")
+                    Text("Badges")
+                }
+            }
+            Spacer()
+            NavigationLink(destination: ProfileView()) {
+                VStack {
+                    Image(systemName: "person.fill")
+                    Text("Profile")
+                }
+            }
+            Spacer()
+            NavigationLink(destination: SettingsView()) {
+                VStack {
+                    Image(systemName: "gearshape.fill")
+                    Text("Settings")
+                }
+            }
+            Spacer()
         }
+        .padding()
+        .background(Color(UIColor.systemGray6))
+        .cornerRadius(10)
+        
+        .navigationBarTitle("Your Badges", displayMode: .inline)
+        .frame(height: 60)
+        .background(Color.white)
+        .shadow(radius: 5)
     }
-    
-    
-    
-    
-    // Placeholder Views
-    struct ScannerView: View { var body: some View { Text("Scanner View") } }
-    struct FeaturedView: View { var body: some View { Text("Featured View") } }
-    struct NearbyView: View { var body: some View { Text("Nearby View") } }
-    struct HomeView: View { var body: some View { Text("Home View") } }
-    struct ExploreView: View { var body: some View { Text("Explore View") } }
-    struct DiscoverView: View { var body: some View { Text("Discover View") } }
-    struct LeaderboardView: View { var body: some View { Text("Leaderboard View") } }
-    
-    
-    
-    
-    
-    #Preview {
-        HomepageView()
-    }
-    
+}
 
+#Preview {
+    HomepageView()
+}
