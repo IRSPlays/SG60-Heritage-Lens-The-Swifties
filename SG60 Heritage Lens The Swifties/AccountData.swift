@@ -39,8 +39,34 @@ let SultanMosque
 let BhuddaToothRelicTemple
 let Char_Kway_Teow
 let ChickenRice
-let Chilicrab
-let chilicrab
+let Chili_Crab
+let Dragon_Playground
+let East_Coast_Park
+let Esplanade
+let Former_Supreme_Court
+let Gardens_By_The_Bay
+let HDB_Flats
+let Hokkien_Mee
+let Kaya_Toast
+let Kopitiam
+let LRT
+let Laksa
+let MBS_Hotel
+let MRT
+let Merlion
+let Nasi_Lemak
+let Rojak
+let SG_Flag
+let Satay
+let Singapore_Public_Bus
+let Sri_Mariamman_Temple
+let St_Andrews_Cathedral
+let Sultan_Mosque
+let Vanda_Miss_Joaquim
+
+
+
+
 
 
 
