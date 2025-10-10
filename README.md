@@ -1,8 +1,3 @@
-
-<p align="center">
-	<img src="docs/banner.png" alt="SG60 Heritage Lens Banner" width="100%" />
-</p>
-
 <h1 align="center">SG60 Heritage Lens — The Swifties</h1>
 
 <p align="center">Discover Singapore’s heritage through your camera.</p>
