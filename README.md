@@ -18,7 +18,6 @@ Note: This project was created for a competition and is open to contributions.
 
 ## Table of Contents
 
-- [Screenshots](#screenshots)
 - [Features at a glance](#features-at-a-glance)
 - [Tech stack](#tech-stack)
 - [App structure (key files)](#app-structure-key-files)
@@ -31,26 +30,7 @@ Note: This project was created for a competition and is open to contributions.
 - [License](#license)
 - [Acknowledgements](#acknowledgements)
 
-## Screenshots
-
-Place your screenshots under `docs/screenshots/` and they will render here. Filenames are examples; replace with your actual files.
-
-<table>
-	<tr>
-		<td align="center"><img src="docs/screenshots/01-home.png" alt="Home" width="240"/><br/>Home</td>
-		<td align="center"><img src="docs/screenshots/02-scanner.png" alt="Scanner" width="240"/><br/>Scanner</td>
-		<td align="center"><img src="docs/screenshots/03-prediction.png" alt="Prediction" width="240"/><br/>Prediction</td>
-	</tr>
-	<tr>
-		<td align="center"><img src="docs/screenshots/04-badges.png" alt="Badges" width="240"/><br/>Badges</td>
-		<td align="center"><img src="docs/screenshots/05-profile.png" alt="Profile" width="240"/><br/>Profile</td>
-		<td align="center"><img src="docs/screenshots/06-settings.png" alt="Settings" width="240"/><br/>Settings</td>
-	</tr>
-	<tr>
-		<td align="center" colspan="3"><em>Tip: Use Xcode’s iOS Simulator “Save Screenshot” or a real device.</em></td>
-	</tr>
-  
-</table>
+ 
 
 ## Features at a glance
 
@@ -101,14 +81,18 @@ Place your screenshots under `docs/screenshots/` and they will render here. File
 
 ```mermaid
 flowchart TD
-	A[UI (SwiftUI Views)
-	- CoremlView
-	- Homepage/Badges/Profile/Settings] --> B[ObservableObject ViewModel
-	- CoremlViewModel]
-	B --> C[Vision VNCoreMLRequest]
-	C --> D[Core ML: Recognition.mlmodel]
-	B --> E[UIKit Image Picker]
-	B -. planned .-> F[(Supabase Client)]
+	A[SwiftUI Views (CoremlView, Homepage, Badges, Profile, Settings)]
+	B[ViewModel (CoremlViewModel)]
+	C[Vision VNCoreMLRequest]
+	D[Core ML: Recognition.mlmodel]
+	E[UIKit Image Picker]
+	F[(Supabase Client)]
+
+	A --> B
+	B --> C
+	C --> D
+	B --> E
+	B -. planned .-> F
 ```
 
 ## Getting started
